@@ -16,17 +16,17 @@ config: {
   onStart: async function ({ api, event }) {
   try {
     const ownerInfo = {
-      name: '𝐇𝐔𝐒𝐒𝐀𝐈𝐍 💝👽',
-      choise: 'Only Russian 🥵🔥',
-      habit: 'Playing Free Fire 🔥',
+      name: '𝗠𝗘 𝗛𝗘 𝗥𝗮𝗭 💝',
+      crush: 'Only Sabrina 🙃🌸',
+      habit: 'Smoking🗿🚬',
       gender: 'Male',
       age: '16+',
-      height: '_hat 🐸🤠',
-      facebookLink: 'https://www.facebook.com/profile.php?id=100071009500533',
-      nick: '𝐇4𝐒𝐒𝐀1𝐍 💫🔥'
+      height: '5.7🐎',
+      facebookLink: 'https://www.facebook.com/meheraz.muhammads.ummat',
+      nick: 'Chisty✨'
     };
 
-    const bold = 'https://i.imgur.com/LbneO8C.mp4'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
+    const bold = 'https://i.imgur.com/vWBQfGC.mp4'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
 
     const tmpFolderPath = path.join(__dirname, 'tmp');
 
@@ -43,7 +43,7 @@ config: {
 ├‣Oᴡɴᴇʀ Iɴғᴏʀᴍᴀᴛɪᴏɴ 📃
 ├───────────◊
 ├‣ Nᴀᴍᴇ: ${ownerInfo.name}
-├‣ Cʜᴏɪsᴇ: ${ownerInfo.choise}
+├‣ Crush: ${ownerInfo.crush}
 ├‣ Hᴀʙɪᴛ: ${ownerInfo.habit}
 ├‣ Gᴇɴᴅᴇʀ:  ${ownerInfo.gender}
 ├‣ Aɢᴇ:  ${ownerInfo.age}
