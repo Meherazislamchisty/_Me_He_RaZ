@@ -3,7 +3,7 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[ 𝗔  𝗬 𝗔 𝗡 ]"; 
+const doNotDelete = "[ 𝗠𝗘 𝗛𝗘 𝗥𝗮𝗭 ]"; 
 
 module.exports = {
   config: {
@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "╭───────❁";
 
-      msg += `\n│𝗔𝗬𝗔𝗡 𝗛𝗘𝗟𝗣 𝗟𝗜𝗦𝗧\n╰────────────❁`; 
+      msg += `\n│𝗠𝗘𝗛𝗘𝗥𝗮𝗭 𝗛𝗘𝗟𝗣 𝗟𝗜𝗦𝗧\n╰────────────❁`; 
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -62,7 +62,7 @@ module.exports = {
       const totalCommands = commands.size;
       msg += `\n\n╭─────✰[𝗘𝗡𝗝𝗢𝗬]\n│>𝗧𝗢𝗧𝗔𝗟 𝗖𝗠𝗗𝗦: [${totalCommands}].\n│𝗧𝗬𝗣𝗘𝖳:[ ${prefix}𝗛𝗘𝗟𝗣 \n│.]\n╰────────────✰`;
       msg += ``;
-      msg += `\n╭─────✰\n│ ╣[𝗔  𝗬 𝗔 𝗡]╠\n╰────────────✰`; 
+      msg += `\n╭─────✰\n│ ╣[𝗠𝗘 𝗛𝗘 𝗥𝗮𝗭]╠\n╰────────────✰`; 
 
 const helpListImages = [ "https://i.imgur.com/a3JShJK.jpeg" ];
 
@@ -91,7 +91,7 @@ const helpListImages = [ "https://i.imgur.com/a3JShJK.jpeg" ];
 
         const response = `
   ╭───⊙
-  │ 🔶 ${configCommand.name}
+  │ ✨ ${configCommand.name}
   ├── INFO
   │ 📝 𝗗𝗲𝘀𝗰𝗿𝗶𝗽𝘁𝗶𝗼𝗻: ${longDescription}
   │ 👑 𝗔𝘂𝘁𝗵𝗼𝗿: ${author}
