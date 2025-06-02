@@ -32,10 +32,10 @@ module.exports = {
   },
 
   sendInfo: async function (message) {
-    const botName = "🕸️ 𝐒𝐩𝐢𝐝𝐞𝐘🕷️";
-    const authorName = "Ma-Hi";
-    const authorFB = "fb.com/mahi68x";
-    const authorInsta = "raadx102";
+    const botName = "𝓭𝓪𝓾𝓭󰟵";
+    const authorName = "Meheraz";
+    const authorFB = "fb.com/meheraz.muhammads.ummat";
+    const authorInsta = "meheraz.muhammads.ummat";
     const status = "𝗦𝗶𝗻𝗴𝗹𝗲";
 
     const now = moment().tz('Asia/Dhaka');
@@ -47,7 +47,7 @@ module.exports = {
     const hours = Math.floor((uptime / (60 * 60)) % 24);
     const uptimeString = `${hours}h ${minutes}m ${seconds}s`;
 
-    const videoUrl = "https://files.catbox.moe/t73j7v.mp4"; /*dont use imgur url for this cmd*/
+    const videoUrl = "https://i.imgur.com/vWBQfGC.mp4"; /*dont use imgur url for this cmd*/
 
     const body = `
 
