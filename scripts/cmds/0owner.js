@@ -38,7 +38,7 @@ config: {
     fs.writeFileSync(videoPath, Buffer.from(videoResponse.data, 'binary'));
 
     const response = ` 
-╭[ .  ]•〆 ᵀᴬᴺᴶᴵᴸ 〆 ]  ─⦿
+╭[ .  ]•〆 Meheraz 〆 ]  ─⦿
 ╭────────────◊
 ├‣ 𝐁𝐨𝐭 & 𝐎𝐰𝐧𝐞𝐫 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 
 ├‣ 𝐍𝐚𝐦𝐞: ${ownerInfo.name}
