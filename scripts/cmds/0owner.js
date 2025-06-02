@@ -20,7 +20,7 @@ config: {
       gender: '𝐌𝐚𝐥𝐞',
       age: '16±',
       height: '5.7',
-      crush: 'Sabrina 🙃',
+      crush: 'Sabrina 🙃🌸',
       nick: 'Chisty'
     };
 
@@ -45,7 +45,7 @@ config: {
 ├‣ 𝐆𝐞𝐧𝐝𝐞𝐫:  ${ownerInfo.gender}
 ├‣ 𝐀𝐠𝐞 .${ownerInfo.age}
 ├‣ 𝐍𝐢𝐜𝐤 : ${ownerInfo.nick}
-├‣ 𝐂𝐡𝐨𝐢𝐬𝐞:  ${ownerInfo.choise}   
+├‣ 𝐂rush:  ${ownerInfo.crush}   
 ├‣ 𝐇𝐞𝐢𝐠𝐡𝐭 : ${ownerInfo.height}
 ╰────────────◊ 
 `;
