@@ -1,7 +1,7 @@
 <h1 align="center">Meheraz's Bot </h1>
 
 <p align="center">
-  <a href="https://files.catbox.moe/2qwm2r.mp4">
+  <a href="https://files.catbox.moe/7tfxcz.jpg">
     <img src="https://i.imgur.com/vWBQfGC.mp4" alt="Watch demo video" width="400"/>
   </a>
 </p>
