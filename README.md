@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://files.catbox.moe/7tfxcz.jpg">
-    <img src="https://i.imgur.com/vWBQfGC.mp4" alt="Watch demo video" width="400"/>
+    <img src="https://files.catbox.moe/7tfxcz.jpg" alt="Watch demo video" width="400"/>
   </a>
 </p>
 
