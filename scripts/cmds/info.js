@@ -47,7 +47,7 @@ module.exports = {
     const hours = Math.floor((uptime / (60 * 60)) % 24);
     const uptimeString = `${hours}h ${minutes}m ${seconds}s`;
 
-    const infoimages = "https://files.catbox.moe/v9fhge.jpg"; /*dont use imgur url for this cmd*/
+    const videourl = "https://files.catbox.moe/v9fhge.jpg"; /*dont use imgur url for this cmd*/
 
     const body = `
 
