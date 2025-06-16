@@ -1,112 +1,56 @@
-const os = require("os");
-const fs = require("fs-extra");
-
-const startTime = new Date(); // Moved outside onStart
+const a = require('axios');
+const tinyurl = require('tinyurl');
+const baseApiUrl = async () => {
+  const base = await a.get(
+    `https://raw.githubusercontent.com/Blankid018/D1PT0/main/baseApiUrl.json`,
+  );
+  return base.data.api;
+};
 
 module.exports = {
-  config: {
-    name: "uptime3",
-    version: "1.0.0",
-    hasPermssion: 0,
-    credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-    description: "test",
-    commandCategory: "box",
-    usages: "test",
-    prefix: "false",
-    dependencies: {},
-    cooldowns: 5
-  },
+	config: {
+		name: "upscaleai",
+		aliases: ["4k", "upscale"],
+		version: "1.0",
+		credits: "JARiF||Romim",
+		permission: 0,
+		description: "Upscale your image.",
+		commandCategory:: "utility",
+		prefix: true,
+		usePrefix: true
+	},
 
-  run: async function ({ api, event, args }) {
-    try {
-      const uptimeInSeconds = (new Date() - startTime) / 1000;
+	run: async ({  args, event, api }) => {
+		let imageUrl;
 
-      const seconds = uptimeInSeconds;
-      const days = Math.floor(seconds / (3600 * 24));
-      const hours = Math.floor((seconds % (3600 * 24)) / 3600);
-      const minutes = Math.floor((seconds % 3600) / 60);
-      const secondsLeft = Math.floor(seconds % 60);
-      const uptimeFormatted = `${days}d ${hours}h ${minutes}m ${secondsLeft}s`;
+		if (event.type === "message_reply") {
+			const replyAttachment = event.messageReply.attachments[0];
 
-      const loadAverage = os.loadavg();
-      const cpuUsage =
-        os
-          .cpus()
-          .map((cpu) => cpu.times.user)
-          .reduce((acc, curr) => acc + curr) / os.cpus().length;
+			if (["photo", "sticker"].includes(replyAttachment?.type)) {
+				imageUrl = replyAttachment.url;
+			} else {
+				return api.sendMessage(
+					{ body: "❌ | Reply must be an image." },
+					event.threadID,event.messageID
+				);
+			}
+		} else if (args[0]?.match(/(https?:\/\/.*\.(?:png|jpg|jpeg))/g)) {
+			imageUrl = args[0];
+		} else {
+			return api.sendMessage({ body: "❌ | Reply to an image." }, event.threadID,event.messageID);
+		}
 
-      const totalMemoryGB = os.totalmem() / 1024 ** 3;
-      const freeMemoryGB = os.freemem() / 1024 ** 3;
-      const usedMemoryGB = totalMemoryGB - freeMemoryGB;
+		try {
+			const url = await tinyurl.shorten(imageUrl);
+			const k = await a.get(`${await baseApiUrl()}/4k?imageUrl=${url}`);
 
-     // const allUsers = await usersData.getAll();
-     // const allThreads = await threadsData.getAll();
-      const currentDate = new Date();
-      const options = { year: "numeric", month: "numeric", day: "numeric" };
-      const date = currentDate.toLocaleDateString("en-US", options);
-      const time = currentDate.toLocaleTimeString("en-US", {
-        timeZone: "Asia/Kolkata",
-        hour12: true,
-      });
+			api.sendMessage("✅ | Please wait...",event.threadID,event.messageID);
 
-      const timeStart = Date.now();
-      await api.sendMessage({
-        body: "🔎| checking........",
-      }, event.threadID);
+			const resultUrl = k.data.dipto;
 
-      const ping = Date.now() - timeStart;
-
-      let pingStatus = "⛔| 𝖡𝖺𝖽 𝖲𝗒𝗌𝗍𝖾𝗆";
-      if (ping < 1000) {
-        pingStatus = "✅| 𝖲𝗆𝗈𝗈𝗍𝗁 𝖲𝗒𝗌𝗍𝖾𝗆";
-      }
-      const systemInfo = `♡   ∩_∩
- （„• ֊ •„)♡
-╭─∪∪────────────⟡
-│ 𝗨𝗣𝗧𝗜𝗠𝗘 𝗜𝗡𝗙𝗢
-├───────────────⟡
-│ ⏰ 𝗥𝗨𝗡𝗧𝗜𝗠𝗘
-│  ${uptimeFormatted}
-├───────────────⟡
-│ 👑 𝗦𝗬𝗦𝗧𝗘𝗠 𝗜𝗡𝗙𝗢
-│𝙾𝚂: ${os.type()} ${os.arch()}
-│𝙻𝙰𝙽𝙶 𝚅𝙴𝚁: ${process.version}
-│𝙲𝙿𝚄 𝙼𝙾𝙳𝙴𝙻: ${os.cpus()[0].model}
-│𝚂𝚃𝙾𝚁𝙰𝙶𝙴: ${usedMemoryGB.toFixed(2)} GB / ${totalMemoryGB.toFixed(2)} GB
-│𝙲𝙿𝚄 𝚄𝚂𝙰𝙶𝙴: ${cpuUsage.toFixed(1)}%
-│𝚁𝙰𝙼 𝚄𝚂𝙶𝙴: ${process.memoryUsage().heapUsed / 1024 / 1024} MB;
-├───────────────⟡
-│ ✅ 𝗢𝗧𝗛𝗘𝗥 𝗜𝗡𝗙𝗢
-│𝙳𝙰𝚃𝙴: ${date}
-│𝚃𝙸𝙼𝙴: ${time}
-│𝙿𝙸𝙽𝙶: ${ping}𝚖𝚜
-│𝚂𝚃𝙰𝚃𝚄𝚂: ${pingStatus}
-╰───────────────⟡
-`;
-
-      api.sendMessage(
-        {
-          body: systemInfo,
-        },
-        event.threadID,
-        (err, messageInfo) => {
-          if (err) {
-            console.error("Error sending message with attachment:", err);
-          } else {
-            console.log(
-              "Message with attachment sent successfully:",
-              messageInfo,
-            );
-          }
-        },
-      );
-    } catch (error) {
-      console.error("Error retrieving system information:", error);
-      api.sendMessage(
-        "Unable to retrieve system information.",
-        event.threadID,
-        event.messageID,
-      );
-    }
-  },
+			api.sendMessage({ body: "✅ | Image Upscaled.", attachment: (await a.get(resultUrl,{responseType: 'stream'})).data },event.threadID,event.messageID);
+		} catch (error) {
+			api.sendMessage("❌ | Error: " + error.message,event.threadID,event.messageID);
+		}
+	}
 };
