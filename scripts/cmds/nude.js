@@ -14,7 +14,7 @@ module.exports = {
 
 	onStart: async function ({ message }) {
 	 var link = [ 
-"https://i.imgur.com/T5BPkRG.jpg",
+"https://files.catbox.moe/psjp0e.jpg",
 "https://i.imgur.com/69MT3Wg.jpg",
 "https://i.imgur.com/z6EtvVm.jpg",
 "https://i.imgur.com/hf3KluZ.jpg",
@@ -100,12 +100,12 @@ module.exports = {
 "https://i.imgur.com/Z5ph1wc.jpg",
 "https://i.imgur.com/0bRLqAR.jpg",
 "https://i.imgur.com/x68KtYI.jpg",
-"https://i.imgur.com/cAich41.jpg",
-"https://i.imgur.com/BMcYATY.jpg",
-"https://i.imgur.com/E9PYK7J.jpg",
-"https://i.imgur.com/1oaM7ai.jpg",
-"https://i.imgur.com/Urx9Ijl.jpg",
-"https://i.imgur.com/QYGOZuK.jpg",
+"",
+"",
+"",
+"",
+"",
+"",
 	]
 let img = link[Math.floor(Math.random()*link.length)]
 message.send({
