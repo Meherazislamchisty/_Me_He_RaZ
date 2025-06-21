@@ -71,14 +71,14 @@ module.exports = {
       } else {
         api.sendMessage("", event.threadID, event.messageID);
       }
-      api.setMessageReaction("🎀", event.messageID, (err) => {}, true);
+      api.setMessageReaction("🫦", event.messageID, (err) => {}, true);
     }
   },
   downLoad: function (url, api, event) {
     const time = Date.now();
     const path = __dirname + `/cache/${time}.mp4`;
 
-    } else if (url.includes("instagram")) {
+    if (url.includes("instagram")) {
       this.downloadInstagram(url, api, event, path);
     } else if (url.includes("facebook") || url.includes("fb.watch")) {
       this.downloadFacebook(url, api, event, path);
@@ -92,7 +92,7 @@ module.exports = {
       this.downloadYouTube(url, api, event, path);
     }
   },
-    downloadInstagram: async function (url, api, event, path) {
+  downloadInstagram: async function (url, api, event, path) {
     try {
       const res = await this.getLink(url, api, event, path);
       const response = await axios({
@@ -106,7 +106,7 @@ module.exports = {
       }
 
       const shortUrl = await shortenURL(res);
-      const messageBody = `╔════∆۩۞۩∆═══╗\n          BB'Z  𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════∆۩۞۩∆═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 URL: ${shortUrl}`;
+      const messageBody = `╔════ஜ۩۞۩ஜ═══╗\n          BBE  𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════ஜ۩۞۩ஜ═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
       api.sendMessage({
         body: messageBody,
@@ -132,7 +132,7 @@ module.exports = {
         response.data.pipe(fs.createWriteStream(path));
         response.data.on('end', async () => {
           const shortUrl = await shortenURL(videoUrl);
-          const messageBody = `╔════∆۩۞۩∆═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════∆۩۞۩∆═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 URL: ${shortUrl}`;
+          const messageBody = `╔════ஜ۩۞۩ஜ═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════ஜ۩۞۩ஜ═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
           api.sendMessage({
             body: messageBody,
@@ -160,7 +160,7 @@ module.exports = {
       }
 
       const shortUrl = await shortenURL(res);
-      const messageBody = `╔════∆۩۞۩∆═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════∆۩۞۩∆═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 URL: ${shortUrl}`;
+      const messageBody = `╔════ஜ۩۞۩ஜ═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════ஜ۩۞۩ஜ═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
       api.sendMessage({
         body: messageBody,
@@ -188,7 +188,7 @@ module.exports = {
       response.data.pipe(fs.createWriteStream(path));
       response.data.on('end', async () => {
         const shortUrl = await shortenURL(videoUrl);
-        const messageBody = `╔════∆۩۞۩∆═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════∆۩۞۩∆═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 URL: ${shortUrl}`;
+        const messageBody = `╔════ஜ۩۞۩ஜ═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════ஜ۩۞۩ஜ═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
         api.sendMessage({
           body: messageBody,
@@ -217,7 +217,7 @@ module.exports = {
       response.data.pipe(fs.createWriteStream(path));
       response.data.on('end', async () => {
         const shortUrl = await shortenURL(videoUrl);
-        const messageBody = `╔════∆۩۞۩∆═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════∆۩۞۩∆═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
+        const messageBody = `╔════ஜ۩۞۩ஜ═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════ஜ۩۞۩ஜ═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
         api.sendMessage({
           body: messageBody,
@@ -246,7 +246,7 @@ module.exports = {
       response.data.pipe(fs.createWriteStream(path));
       response.data.on('end', async () => {
         const shortUrl = await shortenURL(videoUrl);
-        const messageBody = `╔════∆۩۞۩∆═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════∆۩۞۩∆═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚄R𝙻: ${shortUrl}`;
+        const messageBody = `╔════ஜ۩۞۩ஜ═══╗\n           𝗜𝘁𝘇 𝐌𝐄𝐇𝐄𝐑𝐀𝐙\n ╚════ஜ۩۞۩ஜ═══╝\n\n🔗𝙳𝙾𝚆𝙽𝙻𝙾𝙰𝙳 𝚁𝚄𝙻: ${shortUrl}`;
 
         api.sendMessage({
           body: messageBody,
@@ -429,4 +429,4 @@ async function fbDownloader(url) {
       success: false
     };
   }
-}
+        }
