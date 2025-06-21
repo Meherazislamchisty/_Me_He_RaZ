@@ -42,8 +42,8 @@ config: {
 ╭────────────◊
 ├‣ 𝐁𝐨𝐭 & 𝐎𝐰𝐧𝐞𝐫 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 
 ├‣ 𝐍𝐚𝐦𝐞: ${ownerInfo.name}
-├‣ 𝐆𝐞𝐧𝐝𝐞𝐫:  ${ownerInfo.gender}
-├‣ 𝐀𝐠𝐞 .${ownerInfo.age}
+├‣ 𝐆𝐞𝐧𝐝𝐞𝐫:  ${ownerInfo.gender}
+├‣ 𝐀𝐠𝐞 :  ${ownerInfo.age}
 ├‣ 𝐍𝐢𝐜𝐤 : ${ownerInfo.nick}
 ├‣ 𝐂rush:  ${ownerInfo.crush}   
 ├‣ 𝐇𝐞𝐢𝐠𝐡𝐭 : ${ownerInfo.height}
