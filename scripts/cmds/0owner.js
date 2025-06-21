@@ -24,7 +24,7 @@ config: {
       nick: 'Chisty'
     };
 
-    const bold = 'https://files.catbox.moe/7tfxcz.jpg'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
+    const bold = 'https://files.catbox.moe/fn4h1g.jpg'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
 
     const tmpFolderPath = path.join(__dirname, 'tmp');
 
