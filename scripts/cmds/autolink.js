@@ -90,8 +90,9 @@ module.exports = {
       this.downloadPinterest(url, api, event, path);
     } else if (url.includes("youtu")) {
       this.downloadYouTube(url, api, event, path);
+    }
   },
-  downloadInstagram: async function (url, api, event, path) {
+    downloadInstagram: async function (url, api, event, path) {
     try {
       const res = await this.getLink(url, api, event, path);
       const response = await axios({
