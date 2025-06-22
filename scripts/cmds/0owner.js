@@ -20,11 +20,11 @@ config: {
       gender: '𝐌𝐚𝐥𝐞',
       age: '16±',
       height: '5.7',
-      crush: 'Sabrina 🥲🎀',
+      crush: '𝘚𝘢𝘣𝘳𝘪𝘯𝘢 🥲🎀',
       nick: 'CHISTY'
     };
 
-    const bold = 'https://files.catbox.moe/dpgl9a.jpg'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
+    const bold = 'https://res.cloudinary.com/mahiexe/image/upload/v1750619752/mahi/1750619752437-698785208.jpg'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
 
     const tmpFolderPath = path.join(__dirname, 'tmp');
 
