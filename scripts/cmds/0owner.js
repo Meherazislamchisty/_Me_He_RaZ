@@ -24,7 +24,7 @@ config: {
       nick: 'CHISTY'
     };
 
-    const bold = 'https://res.cloudinary.com/mahiexe/image/upload/v1750619752/mahi/1750619752437-698785208.jpg'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
+    const bold = 'enter your catbox url🔗😾🎀😢😢🤧👍'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
 
     const tmpFolderPath = path.join(__dirname, 'tmp');
 
