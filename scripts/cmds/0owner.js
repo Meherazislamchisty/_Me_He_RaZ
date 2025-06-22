@@ -16,15 +16,15 @@ config: {
   onStart: async function ({ api, event }) {
   try {
     const ownerInfo = {
-      name: 'Meheraz',
+      name: 'Ꮇ𝖊һ𝖊𝔯ɑ𝘇',
       gender: '𝐌𝐚𝐥𝐞',
       age: '16±',
       height: '5.7',
-      crush: 'Sabrina 🙃🌸',
-      nick: 'Chisty'
+      crush: 'Sabrina 🥲🎀',
+      nick: 'CHISTY'
     };
 
-    const bold = 'https://files.catbox.moe/fn4h1g.jpg'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
+    const bold = 'https://files.catbox.moe/dpgl9a.jpg'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
 
     const tmpFolderPath = path.join(__dirname, 'tmp');
 
@@ -38,12 +38,12 @@ config: {
     fs.writeFileSync(videoPath, Buffer.from(videoResponse.data, 'binary'));
 
     const response = ` 
-╭[ .  ]•〆 Meheraz 〆 ]  ─⦿
+╭[ .  ]•〆 ᵀᴬᴺᴶᴵᴸ 〆 ]  ─⦿
 ╭────────────◊
 ├‣ 𝐁𝐨𝐭 & 𝐎𝐰𝐧𝐞𝐫 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 
 ├‣ 𝐍𝐚𝐦𝐞: ${ownerInfo.name}
-├‣ 𝐆𝐞𝐧𝐝𝐞𝐫:  ${ownerInfo.gender}
-├‣ 𝐀𝐠𝐞 :  ${ownerInfo.age}
+├‣ 𝐆𝐞𝐧𝐝𝐞𝐫:  ${ownerInfo.gender}
+├‣ 𝐀𝐠𝐞 .${ownerInfo.age}
 ├‣ 𝐍𝐢𝐜𝐤 : ${ownerInfo.nick}
 ├‣ 𝐂rush:  ${ownerInfo.crush}   
 ├‣ 𝐇𝐞𝐢𝐠𝐡𝐭 : ${ownerInfo.height}
