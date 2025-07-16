@@ -23,7 +23,7 @@ module.exports = {
           "MEHERAZ'𝐬 𝐜𝐮𝐭𝐞 𝐥𝐢𝐭𝐭𝐥𝐞 𝐩𝐫𝐢𝐧𝐜𝐞𝐬𝐬 ❀\n\n" +
           "───────⋆⋅☆⋅⋆───────\n" +
           "『 𝓑𝓸𝓽 : 𝐶ℎ𝑖𝑠𝑡𝑦'𝑠 𝐵𝑏'𝑧😘 』",
-        attachment: await global.utils.getStreamFromURL("https://files.catbox.moe/w8skxr.mp4")
+        attachment: await global.utils.getStreamFromURL("https://files.catbox.moe/4z785a.mp4")
       });
     }
   }
