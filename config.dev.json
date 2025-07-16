@@ -23,7 +23,7 @@
   
     "100023789902793",
     "61555686028398",
-    "",
+    "100091913184229",
     "",
     "",
     ""
@@ -32,7 +32,7 @@
     "enable": false,
     "whiteListIds": ["100023789902793",
 "61555686028398",
-      ""
+      "100091913184229"
     ],
     "notes": "if you enable this feature, only the ids in the whiteListIds list can use the bot"
   },
