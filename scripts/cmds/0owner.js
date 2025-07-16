@@ -24,7 +24,7 @@ config: {
       nick: 'CHISTY'
     };
 
-    const bold = 'enter your catbox url🔗😾🎀😢😢🤧👍'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
+    const bold = 'https://files.catbox.moe/4z785a.mp4'; // Replace with your Google Drive videoid link https://drive.google.com/uc?export=download&id=here put your video id
 
     const tmpFolderPath = path.join(__dirname, 'tmp');
 
