@@ -1,39 +1,125 @@
-module.exports.config = {
-  name: "prefix",
-  version: "1.0.0",
-  hasPermssion: 0,
-  credits: "𝐏𝐫𝐢𝐲𝐚𝐧𝐬𝐡 𝐑𝐚𝐣𝐩𝐮𝐭",
-  description: "given prefix detail",
-  commandCategory: "Dành cho Admin",
-  usages: "",
-  cooldowns: 5,
+const fs = require("fs-extra");
+const { utils } = global;
+
+module.exports = {
+  config: {
+    name: "prefix",
+    version: "1.5",
+    author: "NTkhang || Kari Gori By Xos Eren",
+    countDown: 5,
+    role: 0,
+    description: "Change the bot prefix in your chat box or globally (admin only)",
+    category: "⚙️ Configuration",
+    guide: {
+      en:
+        "┌─『 Prefix Settings 』─┐\n"
+      + "│\n"
+      + "│ 🔹 {pn} <prefix>\n"
+      + "│     Set prefix for this chat\n"
+      + "│     Example: {pn} $\n"
+      + "│\n"
+      + "│ 🔹 {pn} <prefix> -g\n"
+      + "│     Set global prefix (Admin only)\n"
+      + "│     Example: {pn} $ -g\n"
+      + "│\n"
+      + "│ ♻️ {pn} reset\n"
+      + "│     Reset to default prefix\n"
+      + "│\n"
+      + "└──────────────────────┘"
+    }
+  },
+
+  langs: {
+    en: {
+      reset:
+        "┌─『 Prefix Reset 』─┐\n"
+      + `│ ✅ Reset to default: %1\n`
+      + "└────────────────────┘",
+      onlyAdmin:
+        "┌─『 Permission Denied 』─┐\n"
+      + "│ ⛔ Only bot admins can change global prefix!\n"
+      + "└──────────────────────────┘",
+      confirmGlobal:
+        "┌─『 Global Prefix Change 』─┐\n"
+      + "│ ⚙️ React to confirm global prefix update.\n"
+      + "└────────────────────────────┘",
+      confirmThisThread:
+        "┌─『 Chat Prefix Change 』─┐\n"
+      + "│ ⚙️ React to confirm this chat's prefix update.\n"
+      + "└──────────────────────────┘",
+      successGlobal:
+        "┌─『 Prefix Updated 』─┐\n"
+      + `│ ✅ Global prefix: %1\n`
+      + "└─────────────────────┘",
+      successThisThread:
+        "┌─『 Prefix Updated 』─┐\n"
+      + `│ ✅ Chat prefix: %1\n`
+      + "└─────────────────────┘",
+      myPrefix:
+        "┌─『 Current Prefix 』─┐\n"
+      + `│ 🌍 Global: %1\n`
+      + `│ 💬 This Chat: %2\n`
+      + "│\n"
+      + `│ ➤ Type: ${2}help\n`
+      + "└─────────────────────┘"
+    }
+  },
+
+  onStart: async function ({ message, role, args, commandName, event, threadsData, getLang }) {
+    if (!args[0]) return message.SyntaxError();
+
+    if (args[0] === "reset") {
+      await threadsData.set(event.threadID, null, "data.prefix");
+      return message.reply(getLang("reset", global.GoatBot.config.prefix));
+    }
+
+    const newPrefix = args[0];
+    const formSet = {
+      commandName,
+      author: event.senderID,
+      newPrefix,
+      setGlobal: args[1] === "-g"
+    };
+
+    if (formSet.setGlobal && role < 2) {
+      return message.reply(getLang("onlyAdmin"));
+    }
+
+    const confirmMessage = formSet.setGlobal ? getLang("confirmGlobal") : getLang("confirmThisThread");
+    return message.reply(confirmMessage, (err, info) => {
+      formSet.messageID = info.messageID;
+      global.GoatBot.onReaction.set(info.messageID, formSet);
+    });
+  },
+
+  onReaction: async function ({ message, threadsData, event, Reaction, getLang }) {
+    const { author, newPrefix, setGlobal } = Reaction;
+    if (event.userID !== author) return;
+
+    if (setGlobal) {
+      global.GoatBot.config.prefix = newPrefix;
+      fs.writeFileSync(global.client.dirConfig, JSON.stringify(global.GoatBot.config, null, 2));
+      return message.reply(getLang("successGlobal", newPrefix));
+    }
+
+    await threadsData.set(event.threadID, newPrefix, "data.prefix");
+    return message.reply(getLang("successThisThread", newPrefix));
+  },
+
+  onChat: async function ({ event, message, threadsData }) {
+    const globalPrefix = global.GoatBot.config.prefix;
+    const threadPrefix = await threadsData.get(event.threadID, "data.prefix") || globalPrefix;
+
+    if (event.body && event.body.toLowerCase() === "prefix") {
+      return message.reply({
+        body:
+          "╔══『 𝐏𝐑𝐄𝐅𝐈𝐗 』══╗\n"
+        + `║ 🌍 System : ${globalPrefix}\n`
+        + `║ 💬 Chatbox : ${threadPrefix}\n`
+        + `║ ➤ ${threadPrefix}help to see all available cmds 🥵\n`
+        + "╚═══════════════╝",
+        attachment: await utils.getStreamFromURL("https://files.catbox.moe/8ufjqu.jpg")
+      });
+    }
+  }
 };
-
-module.exports.handleEvent = async ({ event, api, Threads }) => {
-  var { threadID, messageID, body, senderID } = event;
-  //if (senderID == global.data.botID) return;
-  if ((this.config.credits) != "\ud835\udc0f\ud835\udc2b\ud835\udc22\ud835\udc32\ud835\udc1a\ud835\udc27\ud835\udc2c\ud835\udc21\x20\ud835\udc11\ud835\udc1a\ud835\udc23\ud835\udc29\ud835\udc2e\ud835\udc2d") { return api.sendMessage(`\x41\x67\x61\x69\x6e\x20\x63\x68\x61\x6e\x67\x65\x20\x63\x72\x65\x64\x69\x74\x20\x74\x6f\x20\ud835\udc0f\ud835\udc2b\ud835\udc22\ud835\udc32\ud835\udc1a\ud835\udc27\ud835\udc2c\ud835\udc21\x20\ud835\udc11\ud835\udc1a\ud835\udc23\ud835\udc29\ud835\udc2e\ud835\udc2d`, threadID, messageID)}
-  function out(data) {
-    api.sendMessage(data, threadID, messageID)
-  }
-  var dataThread = (await Threads.getData(threadID));
-  var data = dataThread.data; 
-  const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
-  var arr = ["mpre","mprefix","prefix", "dấu lệnh", "prefix của bot là gì","daulenh", "duong", "what prefix", "freefix", "what is the prefix", "bot dead", "bots dead", "where prefix", "what is bot", "what prefix bot", "how to use bot" ,"how use bot", "where are the bots","bot not working","bot is offline","where prefix","prefx","prfix","prifx","perfix","bot not talking","where is bot"];
-  arr.forEach(i => {
-    let str = i[0].toUpperCase() + i.slice(1);
-    if (body === i.toUpperCase() | body === i | str === body) {
-const prefix = threadSetting.PREFIX || global.config.PREFIX;
-      if (data.PREFIX == null) {
-        return out(`This Is My Prefix ⇉ [ ${prefix} ]\n💝🥀𝐎𝐖𝐍𝐄𝐑:- ☞𝑀𝑒ℎ𝑒𝑟𝑎𝑧 𝐼𝑠𝑙𝑎𝑚☜ 💫\n🖤𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚊𝚕𝚕 𝙷𝚒𝚖 ℙ𝕣𝕚𝕪𝕒𝕟𝕤𝕙🖤\n😳𝐇𝐢𝐬 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝🤓:- ☞ www.facebook.com/meheraz.muhammads.ummat\n
-👋For Any Kind Of Help Contact On Telegram  Username 👉 @meheraz_islam_chisty😇`)
-      }
-      else return out('️️️️️️️️️️️️️️️️️️️️️️️️️️️This Is My Prefix ⇉ [ ${prefix} ]  \n💝🥀𝐎𝐖𝐍𝐄𝐑:- ☞𝑀𝑒ℎ𝑒𝑟𝑎𝑧 𝐼𝑠𝑙𝑎𝑚☜ 💫\n🖤𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚊𝚕𝚕 𝙷𝚒𝚖 ℙ𝕣𝕚𝕪𝕒𝕟𝕤𝕙🖤\n😳𝐇𝐢𝐬 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝🤓:- ☞ www.facebook.com/meheraz.muhammads.ummat\n👋For Any Kind Of Help Contact On Telegram  Username 👉 @meherwz_islam_chisty😇' + data.PREFIX)
-    }
-
-  });
-};
-
-module.exports.run = async({ event, api }) => {
-    return api.sendMessage("error", event.threadID)
-}
