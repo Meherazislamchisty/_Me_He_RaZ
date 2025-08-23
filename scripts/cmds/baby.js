@@ -66,7 +66,7 @@ module.exports = {
       "আমাকে চুমু দিবি 🫢🦋",
       "হেহে বাবু আমার কাছে আসো 😘💋",
       "আমি তোমাকে অনেক ভালোবাসি বাবু🥺💖",
-      "🎀𝔹𝕆𝕋ᶜᵁᵀ 𝐁𝐎𝐓__/:;)🤍  বট এর help list dekhte type koron Help",
+      " C　H　I　S　T　Y　ツ বট এর help list dekhte type koron Help",
       "কিরে বলদ তুই এইখানে 🙂",
       " আমাকেq চিনো না জানু? মনু",
       "hey bbe I'm your personal Based chatbot you ask me anything",
@@ -119,7 +119,7 @@ module.exports = {
     const wordCount = words.length;
 
     if (event.type !== "message_reply" && mahmuds.some(mahmud => message.startsWith(mahmud))) {
-      api.setMessageReaction("🪽", event.messageID, () => {}, true);
+      api.setMessageReaction("♟️", event.messageID, () => {}, true);
       api.sendTypingIndicator(event.threadID, true);
 
       if (wordCount === 1) {
